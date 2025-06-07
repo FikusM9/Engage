@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class PickUpController : MonoBehaviour
 {
-    
-    void Start()
-    {
-        
-    }
+    public Sprite icon;
+    public int id;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

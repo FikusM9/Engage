@@ -102,15 +102,15 @@ Material:
     - _DepthFadeDistance: 10
     - _FoamBlend: 0.09
     - _FresnelPower: 1
-    - _GradientRefractionScale: 10
+    - _GradientRefractionScale: 8.51
     - _HorizonDistance: 200
     - _IntersectionFoamBlend: 1.09
     - _IntersectionFoamCutoff: 1.85
-    - _IntersectionFoamDepth: 1.59
-    - _IntersectionFoamDirection: 0
+    - _IntersectionFoamDepth: 1
+    - _IntersectionFoamDirection: 0.8
     - _IntersectionFoamFade: 1.48
     - _IntersectionFoamSpeed: 0.1
-    - _IntersectionFoamTiling: 0.75
+    - _IntersectionFoamTiling: 0.5
     - _LightingHardness: 0.39
     - _LightingSmoothness: 12.34
     - _NormalScale: 1.61
@@ -124,7 +124,7 @@ Material:
     - _REFLECTIONS: 0
     - _ReflectionBlend: 0.67
     - _ReflectionDistortion: 0.38
-    - _RefractionScale: 10
+    - _RefractionScale: 9.88
     - _RefractionSpeed: 0.05
     - _RefractionStrength: 0.001
     - _RippleStrength: 83.62
@@ -132,9 +132,9 @@ Material:
     - _SkyboxForce: 2.5
     - _Steps: 50
     - _SurfaceFoamDirection: 1
-    - _SurfaceFoamDistorsion: 1.01
+    - _SurfaceFoamDistorsion: 0.7
     - _SurfaceFoamSpeed: 0
-    - _SurfaceFoamTiling: 1.11
+    - _SurfaceFoamTiling: 0.65
     - _TileSize: 200
     - _WORLD_SPACE_UV: 0
     - _WaterAlpha: 1
@@ -150,13 +150,13 @@ Material:
     - _CaveOffset: {r: -0.45, g: 0, b: 0, a: 0}
     - _CaveScale: {r: 0.01, g: 0.01, b: 0, a: 0}
     - _CaveSecondaryColor: {r: 0, g: 0, b: 0, a: 0}
-    - _DeepColor: {r: 0, g: 0, b: 0, a: 1}
+    - _DeepColor: {r: 1, g: 0.24230964, b: 0, a: 1}
     - _FoamUVsOffset: {r: 1, g: 1, b: 0, a: 0}
     - _FresnelColor: {r: 2.670157, g: 2.670157, b: 2.670157, a: 0}
     - _HorizonColor: {r: 6.950159, g: 4.2356625, b: 6.4411907, a: 0}
     - _IntersectionFoamColor: {r: 3.9999995, g: 0.11468783, b: 0, a: 1}
     - _PositionRipples: {r: 0, g: 0, b: 0, a: 0}
-    - _SecondaryFoamColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SecondaryFoamColor: {r: 0.4339623, g: 0.025978269, b: 0, a: 1}
     - _ShallowColor: {r: 4.9457116, g: 0.54648745, b: 0, a: 1}
     - _SpecularColor: {r: 0, g: 0, b: 0, a: 0.31764707}
     - _SurfaceFoamColor: {r: 9.465039, g: 0.5980594, b: 0, a: 1}

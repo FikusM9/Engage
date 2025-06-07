@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,11 +7,12 @@ public class PlayerController3D : MonoBehaviour
 {
 
     public float speed = 10f;
-    //public float acceleration = 10f;
+    public float acceleration = 20f;
     public float jumpHeight = 3f;
     public float mouseSensitivity = 100f;
     public Transform camTransform;
     public TextMeshProUGUI scope;
+    public GameObject inventory;
 
     CharacterController characterController;
 
@@ -31,6 +33,9 @@ public class PlayerController3D : MonoBehaviour
     Color scopeGray = new Color(107f/255f, 107f/255f, 107f/255f);
     Color scopeYellow = new Color(255f/255f, 251f/255f, 0);
 
+    InventoryController inventoryController;
+
+    bool inLava = false;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -39,6 +44,8 @@ public class PlayerController3D : MonoBehaviour
         pickUpLayer = LayerMask.GetMask("Interactable");
         scope.color = scopeGray;
         pickedItems = new List<GameObject>();
+        if(inventory != null)
+            inventoryController = inventory.GetComponent<InventoryController>();
     }
 
     void Update()
@@ -55,6 +62,12 @@ public class PlayerController3D : MonoBehaviour
         Look();
         ScopeDetection();
         PickUp();
+
+        /*if (inLava)
+        {
+            Debug.Log("GORIMMM");
+        }*/
+
     }
 
     private void Move()
@@ -62,17 +75,19 @@ public class PlayerController3D : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
 
-        Vector3 targetMove = (transform.right*moveX + transform.forward*moveY).normalized;
-        /*if (velocity.y > 0.01f)
+        Vector3 targetMove = (transform.right*moveX + transform.forward*moveY);
+        /*if (velocity.y > 0.1f)
             move = targetMove;
+        else */if (targetMove.magnitude < 0.2f)
+            move = Vector3.zero;
         else
-            move = Vector3.Lerp(move, targetMove, acceleration * Time.deltaTime);*/
+            move = Vector3.Lerp(move, targetMove, acceleration * Time.deltaTime);
 
         float currentSpeed = isGrounded ? speed : speed / 3;
 
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y += 1.5f * gravity * Time.deltaTime;
 
-        characterController.Move(targetMove*speed*Time.deltaTime + velocity * Time.deltaTime);
+        characterController.Move(move*speed*Time.deltaTime + velocity * Time.deltaTime);
     }
 
     private void Jump()
@@ -111,18 +126,6 @@ public class PlayerController3D : MonoBehaviour
             canPickUp = true;
             scope.color = scopeYellow;
             triggeredItem = hit.collider.gameObject;
-            /*try
-            {
-                PickUpController pickUp = hit.collider.gameObject.GetComponent<PickUpController>();
-
-                if (pickUp == null) return;
-
-            }
-            catch 
-            {
-                Debug.Log("Missing PickUpController script");
-            }*/
-            
         }
         else if (!isHit && canPickUp)
         {
@@ -138,6 +141,9 @@ public class PlayerController3D : MonoBehaviour
         {
             if (triggeredItem == null) return;
             pickedItems.Add(triggeredItem);
+            Sprite sprite = triggeredItem.GetComponent<PickUpController>().icon;
+            int itemId = triggeredItem.GetComponent<PickUpController>().id;
+            inventoryController.AddItem(sprite, itemId);
             triggeredItem.SetActive(false);
         }
     }
@@ -147,6 +153,14 @@ public class PlayerController3D : MonoBehaviour
         if (other.gameObject.CompareTag("Interactable"))
         {
             isTriggered = true;
+        }
+        else if (other.gameObject.CompareTag("Lava"))
+        {
+            if (!inLava)
+            {
+                inLava = true;
+                StartCoroutine(InLava());
+            }
         }
     }
 
@@ -161,6 +175,20 @@ public class PlayerController3D : MonoBehaviour
                 scope.color = scopeGray;
                 triggeredItem = null;
             }
+        }
+        else if (other.gameObject.CompareTag("Lava"))
+        {
+            inLava = false;
+        }
+    }
+
+
+    private IEnumerator InLava()
+    {
+        while (inLava)
+        {
+            Debug.Log("GORIMMM");
+            yield return new WaitForSeconds(1);
         }
     }
 
