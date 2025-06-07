@@ -6943,10 +6943,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  acceleration: 20
   jumpHeight: 2
   mouseSensitivity: 3
   camTransform: {fileID: 908162737}
   scope: {fileID: 464527931}
+  inventory: {fileID: 0}
   pickUpDistance: 10
   isTriggered: 0
 --- !u!143 &791583926
