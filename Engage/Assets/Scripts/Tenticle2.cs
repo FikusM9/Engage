@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 
-public class Tenticle : MonoBehaviour
+public class Tenticle2 : MonoBehaviour
 {
     public int len;
     public LineRenderer lr;
@@ -17,44 +15,44 @@ public class Tenticle : MonoBehaviour
     public float trailspeed;
     public Transform wiggledir;
     public float angle;
-    public float minMagnitude;
 
-
-    private Vector3[] _segspeed;
+    private Vector3[] segspeed;
 
     private void Start()
     {
+        lr = GetComponent<LineRenderer>();
+        lr.widthMultiplier = 1;
         lr.positionCount = len;
+        print(lr);
         segpos = new Vector3[len];
-        _segspeed = new Vector3[len];
+        segspeed = new Vector3[len];
         ResetPos();
-        
+
     }
 
+    
 
-
-    private void Update()
+    private void FixedUpdate()
     {
-        wiggledir.localRotation = Quaternion.Euler(0,0, angle + Mathf.Sin(Time.time * wigglespeed) * wigglemagnitude);
+        wiggledir.localRotation = Quaternion.Euler(0, 0, angle+Mathf.Sin(Time.time * wigglespeed) * wigglemagnitude);
         segpos[0] = targetdir.position;
         segpos[0].z = 2;
         for (int i = 1; i < segpos.Length; i++)
         {
-            Vector3 targetpos=segpos[i-1] +(segpos[i]-segpos[i-1]).normalized*targetdist;
-            segpos[i] = Vector3.SmoothDamp(segpos[i], targetpos , ref _segspeed[i], smoothspeed);
+            segpos[i] = Vector3.SmoothDamp(segpos[i], segpos[i-1]+targetdir.right*targetdist, ref segspeed[i], smoothspeed+i/trailspeed);
             segpos[i].z = 2;
-            print(segpos[i]);
         }
         lr.SetPositions(segpos);
     }
 
+  
     public void ResetPos()
     {
         segpos[0] = targetdir.position;
         segpos[0].z = 2;
         for (int i = 1; i < len; i++)
         {
-            segpos[i] = segpos[i - 1] + new Vector3(0,Time.deltaTime*10,0);
+            segpos[i] = segpos[i - 1] + targetdir.right * targetdist;
         }
         lr.SetPositions(segpos);
     }
