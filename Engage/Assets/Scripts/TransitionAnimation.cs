@@ -18,9 +18,11 @@ public class TransitionAnimation : MonoBehaviour
     private float _transition1Timer;
     private float _transition2Timer;
     private bool _transitionInProgress;
+    private CameraShake _cameraShake;
     
     private void OnEnable()
     {
+        _cameraShake = FindObjectOfType<CameraShake>();
         _gameManager= FindObjectOfType<GameManager>();
         GameManager.OnStart2d += Start2d;
         GameManager.OnStart3d += Start3d;
@@ -76,6 +78,7 @@ public class TransitionAnimation : MonoBehaviour
     public void StartTransition2()
     {
         print("Trans2");
+        _cameraShake.Shake(transitionDuration, 0.2f);
         _transitionInProgress = true;
         _transition2Timer = transitionDuration;
     }

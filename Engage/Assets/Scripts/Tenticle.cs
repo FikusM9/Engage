@@ -17,16 +17,13 @@ public class Tenticle : MonoBehaviour
     public float trailspeed;
     public Transform wiggledir;
     public float angle;
-    public GameObject enemy;
     public float minMagnitude;
-    private Rigidbody2D _rb;
 
 
     private Vector3[] _segspeed;
 
     private void Start()
     {
-        _rb=enemy.GetComponent<Rigidbody2D>();
         lr.positionCount = len;
         segpos = new Vector3[len];
         _segspeed = new Vector3[len];
