@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public static event System.Action OnStart2d;
     public static event System.Action OnStart3d;
     public static int CurrentBulletCount = 10;
+    public static int CurrentStopWatchCount = 10;
     public bool is2d = true;
     public static float Timer;
     public float time2d = 10f;

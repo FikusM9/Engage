@@ -44,5 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e3885a89249134fafd8b02f56ce077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time2d: 10
-  time3d: 10
+  is2d: 1
+  time2d: 15
+  time3d: 15
+  myCamera: {fileID: 0}
+  scene2d: {fileID: 0}
+  scene3d: {fileID: 0}
+  player3d: {fileID: 0}
+  player2d: {fileID: 0}

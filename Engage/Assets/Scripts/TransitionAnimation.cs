@@ -20,7 +20,6 @@ public class TransitionAnimation : MonoBehaviour
     private float _transition1Timer;
     private float _transition2Timer;
     private bool _transitionInProgress;
-    private CameraShake _cameraShake;
 
 
     private void Awake()
@@ -49,7 +48,6 @@ public class TransitionAnimation : MonoBehaviour
     }
     void Start()
     {
-        _cameraShake = FindObjectOfType<CameraShake>();
         _gameManager= FindObjectOfType<GameManager>();
     }
 
@@ -98,7 +96,7 @@ public class TransitionAnimation : MonoBehaviour
     public void StartTransition2()
     {
         print("Trans2");
-        _cameraShake.Shake(transitionDuration, 0.2f);
+        myCamera.GetComponent<CameraFollow>().TriggerShake(transitionDuration, 0.2f);
         _transitionInProgress = true;
         _transition2Timer = transitionDuration;
     }

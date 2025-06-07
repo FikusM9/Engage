@@ -41,6 +41,7 @@ public class CameraShake : MonoBehaviour
             transform.localPosition = _initialPosition + new Vector3(offsetX, offsetY, 0f);
 
             elapsed += Time.deltaTime;
+            _initialPosition = transform.localPosition;
             yield return null;
         }
 

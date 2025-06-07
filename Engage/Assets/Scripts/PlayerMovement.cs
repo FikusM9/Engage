@@ -10,10 +10,12 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject myArrow;
     public GameObject arrowPrefab;
+    private CameraShake _cameraShake;
 
 
     private void OnEnable()
     {
+        _cameraShake = FindObjectOfType<CameraShake>();
         if (GameManager.CurrentBulletCount > 0)
         {
             myArrow.SetActive(true);
@@ -29,6 +31,11 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && GameManager.CurrentBulletCount > 0)
         {
             SpawnArrow();
+        }
+
+        if (Input.GetMouseButtonDown(1) && GameManager.CurrentStopWatchCount > 0 && GameManager.Timer > 1.1f)
+        {
+            UseStopWatch();
         }
     }
     void FixedUpdate() 
@@ -52,6 +59,8 @@ public class PlayerMovement : MonoBehaviour
     
     void SpawnArrow()
     {
+        
+        //_cameraShake.Shake(0.05f, 0.1f);
         GameManager.CurrentBulletCount--;
         
         GameObject arrow = Instantiate(arrowPrefab, myArrow.transform.position, myArrow.transform.rotation);
@@ -60,5 +69,11 @@ public class PlayerMovement : MonoBehaviour
         {
             myArrow.SetActive(false);
         }
+    }
+
+    void UseStopWatch()
+    {
+        GameManager.CurrentStopWatchCount--;
+        GameManager.Timer = 1.1f;
     }
 }
