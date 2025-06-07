@@ -11,6 +11,7 @@ public class PlayerController3D : MonoBehaviour
     public float mouseSensitivity = 100f;
     public Transform camTransform;
     public TextMeshProUGUI scope;
+    public GameObject inventory;
 
     CharacterController characterController;
 
@@ -31,6 +32,7 @@ public class PlayerController3D : MonoBehaviour
     Color scopeGray = new Color(107f/255f, 107f/255f, 107f/255f);
     Color scopeYellow = new Color(255f/255f, 251f/255f, 0);
 
+    InventoryController inventoryController;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -39,6 +41,7 @@ public class PlayerController3D : MonoBehaviour
         pickUpLayer = LayerMask.GetMask("Interactable");
         scope.color = scopeGray;
         pickedItems = new List<GameObject>();
+        inventoryController = inventory.GetComponent<InventoryController>();
     }
 
     void Update()
@@ -138,6 +141,9 @@ public class PlayerController3D : MonoBehaviour
         {
             if (triggeredItem == null) return;
             pickedItems.Add(triggeredItem);
+            Sprite sprite = triggeredItem.GetComponent<PickUpController>().icon;
+            int itemId = triggeredItem.GetComponent<PickUpController>().id;
+            inventoryController.AddItem(sprite, itemId);
             triggeredItem.SetActive(false);
         }
     }
