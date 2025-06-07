@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -7,15 +8,32 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _movement;
     public float rotationSpeed = 10f;
 
-    // Update is called once per frame
+    public GameObject myArrow;
+    public GameObject arrowPrefab;
+
+
+    private void OnEnable()
+    {
+        if (GameManager.CurrentBulletCount > 0)
+        {
+            myArrow.SetActive(true);
+        }
+    }
+
     void Update()
     {
         _movement.x = Input.GetAxisRaw("Horizontal");
         
         _movement.y = Input.GetAxisRaw("Vertical");
+        
+        if (Input.GetMouseButtonDown(0) && GameManager.CurrentBulletCount > 0)
+        {
+            SpawnArrow();
+        }
     }
     void FixedUpdate() 
     {
+        
         rb.MovePosition(rb.position + _movement.normalized * moveSpeed * Time.fixedDeltaTime);
         
         Vector2 moveDirection = new Vector2(_movement.x, _movement.y).normalized;
@@ -27,6 +45,20 @@ public class PlayerMovement : MonoBehaviour
             Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle+ 90f); // Adjust the angle if needed
 
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
+    }
+    
+    
+    
+    void SpawnArrow()
+    {
+        GameManager.CurrentBulletCount--;
+        
+        GameObject arrow = Instantiate(arrowPrefab, myArrow.transform.position, myArrow.transform.rotation);
+        
+        if (GameManager.CurrentBulletCount <= 0)
+        {
+            myArrow.SetActive(false);
         }
     }
 }
