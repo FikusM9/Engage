@@ -1,0 +1,62 @@
+{
+    "name": "ObjectControll",
+    "maps": [
+        {
+            "name": "Door",
+            "id": "5325eef2-f463-45cf-b4f5-41e009e03596",
+            "actions": [
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "0734a262-6d54-4e42-ab45-9dd79ac858d5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "14b9e034-4995-4e9e-896c-4a93678f64df",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Player Swap",
+            "id": "31c10217-95ca-4aa5-98dd-b557571f5fa2",
+            "actions": [
+                {
+                    "name": "Swap",
+                    "type": "Button",
+                    "id": "0982e4a3-76ab-49bd-89c2-4579ba91b11b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7d8334d2-5e42-4be9-8d56-e26f0e552622",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Swap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

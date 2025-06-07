@@ -1,0 +1,148 @@
+{
+    "name": "Player",
+    "maps": [
+        {
+            "name": "inter",
+            "id": "7944e92f-9f33-4c11-bdd1-0b930584937a",
+            "actions": [
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "4fd40c6a-606d-4b41-b4e4-203a3a7e03e4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "38c9b04b-2a05-416c-9cdd-8a602528942b",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Flying car",
+            "id": "7c3ddac9-8f9c-4bcd-ab4a-b94406678adf",
+            "actions": [
+                {
+                    "name": "Driving",
+                    "type": "PassThrough",
+                    "id": "f564e338-1912-4c16-989f-3a091fa8ee7b",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "Press,Hold",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Braking",
+                    "type": "Button",
+                    "id": "883fbc82-ad19-4829-b380-d68bfcb5a2d8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "3D Vector",
+                    "id": "6c7e4dc5-9f71-4f54-bee2-6f32440be71a",
+                    "path": "3DVector",
+                    "interactions": "",
+                    "processors": "NormalizeVector3",
+                    "groups": "",
+                    "action": "Driving",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Forward",
+                    "id": "a8579c4c-2bda-41d9-9cbc-9bf2ebcb1238",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Driving",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Backward",
+                    "id": "cf873b31-a08f-4fd7-be94-619ac4cabd16",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Driving",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "bae256dd-258a-4366-a80f-c262d5fc7fb1",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Driving",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "345c6200-ffb7-41f0-8860-a6a7edd1a4f9",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Driving",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Up",
+                    "id": "30f3668b-2a1e-4fe2-b544-43d71ed7dc83",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Driving",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Down",
+                    "id": "27700f36-5b49-494c-9e4b-f7ce6d499197",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Driving",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "37fd1c06-b88a-44cc-aba6-0aec1e12af15",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Braking",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

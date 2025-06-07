@@ -954,17 +954,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2129283493396514180, guid: fc91e14057556e14ebaee3e99ba1fd37, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129283493396514180, guid: fc91e14057556e14ebaee3e99ba1fd37, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2129283493396514180, guid: fc91e14057556e14ebaee3e99ba1fd37, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2798281514100535546, guid: fc91e14057556e14ebaee3e99ba1fd37, type: 3}
       propertyPath: m_Name
       value: enemy7 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5774471058574927563, guid: fc91e14057556e14ebaee3e99ba1fd37, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5774471058574927563, guid: fc91e14057556e14ebaee3e99ba1fd37, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5774471058574927563, guid: fc91e14057556e14ebaee3e99ba1fd37, type: 3}
       propertyPath: m_Color.r
@@ -1746,10 +1758,10 @@ SceneRoots:
   m_Roots:
   - {fileID: 1170954484}
   - {fileID: 221494661}
+  - {fileID: 1665314719}
   - {fileID: 1891454209}
   - {fileID: 1132500825408801234}
   - {fileID: 1693965944}
-  - {fileID: 1665314719}
   - {fileID: 1347303898}
   - {fileID: 1201189467}
   - {fileID: 706497134}
