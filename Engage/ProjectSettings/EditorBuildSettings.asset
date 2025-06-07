@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Fikus.unity
+    guid: 5b3c6a6eb696dec419406a51020b7651
+  - enabled: 1
+    path: Assets/Scenes/Fikus2.unity
+    guid: 9b7ec539da9811e44bdb24ca731fcb54
   m_configObjects: {}

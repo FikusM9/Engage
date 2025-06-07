@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class TransitionAnimation : MonoBehaviour
 {
+    
+    public static TransitionAnimation TransitionInstance;
     private GameManager _gameManager;
     public RawImage noiseBlockerImage;
     public RawImage transitionImage;
@@ -19,27 +21,36 @@ public class TransitionAnimation : MonoBehaviour
     private float _transition2Timer;
     private bool _transitionInProgress;
     private CameraShake _cameraShake;
+
+
+    private void Awake()
+    {
+        
+    }
     
+
     private void OnEnable()
     {
-        _cameraShake = FindObjectOfType<CameraShake>();
-        _gameManager= FindObjectOfType<GameManager>();
         GameManager.OnStart2d += Start2d;
         GameManager.OnStart3d += Start3d;
     }
     
     public void Start2d()
     {
+        _transitionInProgress = false;
         noiseBlockerImage.enabled = true;
+        StartTransition1();
     }
     
     public void Start3d()
     {
         _transitionInProgress = false;
+        StartTransition1();
     }
     void Start()
     {
-        StartTransition1();
+        _cameraShake = FindObjectOfType<CameraShake>();
+        _gameManager= FindObjectOfType<GameManager>();
     }
 
     void Update()
@@ -51,8 +62,13 @@ public class TransitionAnimation : MonoBehaviour
         
         noiseBlockerImage.color=Color.Lerp(noiseBlockerStart, noiseBlockerEnd, 
             (_gameManager.time2d-GameManager.Timer)/_gameManager.time2d);
-        myCamera.orthographicSize= Mathf.Lerp(cameraSizeStart, cameraSizeEnd, 
-            (_gameManager.time2d-GameManager.Timer)/_gameManager.time2d);
+        
+        if (_gameManager.is2d)
+        {
+            myCamera.orthographicSize = Mathf.Lerp(cameraSizeStart, cameraSizeEnd,
+                (_gameManager.time2d - GameManager.Timer) / _gameManager.time2d);
+        }
+
         if (_transition1Timer > 0f)
         {
             _transition1Timer -= Time.deltaTime;

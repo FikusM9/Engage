@@ -23,7 +23,6 @@ public class Tenticle2 : MonoBehaviour
         lr = GetComponent<LineRenderer>();
         lr.widthMultiplier = 1;
         lr.positionCount = len;
-        print(lr);
         segpos = new Vector3[len];
         segspeed = new Vector3[len];
         ResetPos();
