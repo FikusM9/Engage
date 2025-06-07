@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class LightController : MonoBehaviour
 {
@@ -8,12 +9,16 @@ public class LightController : MonoBehaviour
     public bool isOn = true;
 
     public Light pointLight;
-    float minIntensity = 0.8f;
-    float maxIntensity = 1.2f;
-    float minTime = 1f;
-    float maxTime = 2f;
+    float minIntensity = 18f;
+    float maxIntensity = 20f;
+    float minTime = 0.2f;
+    float maxTime = 1f;
     void Start()
     {
+        if (isOn)
+        {
+            StartCoroutine(Flicker());
+        }
     }
 
     // Update is called once per frame
@@ -23,16 +28,24 @@ public class LightController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(isOn) return;
-        isOn = true;
-        gameObject.SetActive(true);
-        StartCoroutine(Flicker());
+        if (other.CompareTag("Player3D"))
+        {
+            isOn = true;
+            pointLight.gameObject.SetActive(true);
+            StartCoroutine(Flicker());
+        }
+            
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(!isOn) return;
-        isOn = false;
-        gameObject.SetActive(false);
+        if (other.CompareTag("Player3D"))
+        {
+            if (!isOn) return;
+            isOn = false;
+            pointLight.gameObject.SetActive(false);
+        }
+        
     }
 
     private IEnumerator Flicker()

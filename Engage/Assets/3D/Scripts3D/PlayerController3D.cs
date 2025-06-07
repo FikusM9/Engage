@@ -83,9 +83,9 @@ public class PlayerController3D : MonoBehaviour
         else
             move = Vector3.Lerp(move, targetMove, acceleration * Time.deltaTime);
 
-        float currentSpeed = isGrounded ? speed : speed / 3;
+        float currentSpeed = isGrounded ? speed : speed / 4;
 
-        velocity.y += 1.5f * gravity * Time.deltaTime;
+        velocity.y += 1.8f * gravity * Time.deltaTime;
 
         characterController.Move(move*speed*Time.deltaTime + velocity * Time.deltaTime);
     }
