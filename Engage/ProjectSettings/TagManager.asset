@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactable
   - Lava
+  - Player3D
   layers:
   - Default
   - TransparentFX
