@@ -63,11 +63,6 @@ public class TransitionAnimation : MonoBehaviour
         noiseBlockerImage.color=Color.Lerp(noiseBlockerStart, noiseBlockerEnd, 
             (_gameManager.time2d-GameManager.Timer)/_gameManager.time2d);
         
-        if (_gameManager.is2d)
-        {
-            myCamera.orthographicSize = Mathf.Lerp(cameraSizeStart, cameraSizeEnd,
-                (_gameManager.time2d - GameManager.Timer) / _gameManager.time2d);
-        }
 
         if (_transition1Timer > 0f)
         {
@@ -85,6 +80,15 @@ public class TransitionAnimation : MonoBehaviour
         }
     }
 
+    void LateUpdate()
+    {
+        if (_gameManager.is2d)
+        {
+            myCamera.orthographicSize = Mathf.Lerp(cameraSizeStart, cameraSizeEnd,
+                (_gameManager.time2d - GameManager.Timer) / _gameManager.time2d);
+        }
+    }
+    
     public void StartTransition1()
     {
         print("Trans1");

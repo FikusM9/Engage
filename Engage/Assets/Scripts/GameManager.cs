@@ -7,9 +7,12 @@ using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
+    
+    
     public static GameManager Instance;
     public static event System.Action OnStart2d;
     public static event System.Action OnStart3d;
+    public static int CurrentBulletCount = 10;
     public bool is2d = true;
     public static float Timer;
     public float time2d = 10f;
@@ -34,7 +37,7 @@ public class GameManager : MonoBehaviour
         is2d = true;
         scene2d.SetActive(true);
         myCamera.transform.position = new Vector3(player2d.transform.position.x, player2d.transform.position.y, -5f);
-        myCamera.transform.rotation = player2d.transform.rotation;
+        myCamera.transform.rotation = Quaternion.identity;
         myCamera.transform.SetParent(scene2d.transform);
         myCamera.orthographic = true;
         scene3d.SetActive(false);
@@ -47,7 +50,7 @@ public class GameManager : MonoBehaviour
         is2d = false;
         scene3d.SetActive(true);
         myCamera.transform.position = player3d.transform.position;
-        myCamera.transform.rotation = player3d.transform.rotation;
+        myCamera.transform.rotation = Quaternion.identity;
         myCamera.transform.SetParent(player3d.transform);
         myCamera.orthographic = false;
         scene2d.SetActive(false);
