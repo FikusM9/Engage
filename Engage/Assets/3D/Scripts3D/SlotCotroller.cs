@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SlotCotroller : MonoBehaviour
 {
-    
+    bool isFree = true;
 
     void Start()
     {
@@ -36,15 +36,30 @@ public class SlotCotroller : MonoBehaviour
             slotImage.gameObject.SetActive(true);
             TextMeshProUGUI itemCount = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
             itemCount.text = "1";
+            isFree = false;
         }
         
     }
 
     public void RemoveItem()
     {
-        Image slotImage = transform.GetChild(0).GetComponent<Image>();
-        slotImage.sprite = null;
-        slotImage.gameObject.SetActive(false);
+        TextMeshProUGUI itemCount = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        if (itemCount.text == "") return;
+        int count = int.Parse(itemCount.text);
+        if(--count <= 0)
+        {
+            Image slotImage = transform.GetChild(0).GetComponent<Image>();
+            slotImage.sprite = null;
+            slotImage.gameObject.SetActive(false);
+            itemCount.text = "";
+            itemCount.gameObject.SetActive(false);
+            isFree = true;
+        }
+        else
+        {
+            itemCount.text = count.ToString();
+        }
+        
     }
 
 }

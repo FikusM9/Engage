@@ -3,24 +3,31 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class InventoryController : MonoBehaviour
 {
     public int maxItems = 6;
     public GameObject slotsParent;
-
+    public GameObject hotBar;
 
     List<int> inventory;
-
     int numOfItems = 0;
+
+    UIHotbarSelector hotBarSelector;
 
     void Start()
     {
         inventory = new List<int>();
+        hotBarSelector = hotBar.GetComponent<UIHotbarSelector>();
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            RemoveItem(hotBarSelector.GetSelectedIndex() );
+        }
         
     }
      
@@ -28,7 +35,6 @@ public class InventoryController : MonoBehaviour
     {
         if (inventory.Contains(itemId))
         {
-            Debug.Log(itemId);
             int slotId = inventory.IndexOf(itemId);
             SlotCotroller slot = slotsParent.transform.GetChild(slotId).GetComponent<SlotCotroller>();
             slot.AddItem(icon, false);
@@ -43,9 +49,11 @@ public class InventoryController : MonoBehaviour
         }        
     }
 
-    public void RemoveItem(int id)
+    public void RemoveItem(int slotId)
     {
-
+        if (slotId < 0 || slotId >= maxItems) return;
+        SlotCotroller slot = slotsParent.transform.GetChild(slotId).GetComponent<SlotCotroller>();
+        slot.RemoveItem();
     }
 
 }

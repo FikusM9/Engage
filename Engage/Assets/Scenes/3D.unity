@@ -1347,6 +1347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxItems: 6
   slotsParent: {fileID: 1346436937}
+  hotBar: {fileID: 1292451808}
 --- !u!1 &791583924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1377,8 +1378,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5996b01a729364d4fbb3b37bd92ddff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  jumpHeight: 2
+  speed: 8
+  acceleration: 100
+  jumpHeight: 3
   mouseSensitivity: 3
   camTransform: {fileID: 908162737}
   scope: {fileID: 1220608828}
