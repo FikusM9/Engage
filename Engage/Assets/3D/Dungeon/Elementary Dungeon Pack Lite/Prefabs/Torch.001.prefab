@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8076866308431420103}
   - component: {fileID: 7769894917561011699}
   - component: {fileID: 1401081672180910576}
+  - component: {fileID: 8684757733118405891}
+  - component: {fileID: 6691278233053192084}
   m_Layer: 0
   m_Name: Torch.001
   m_TagString: Untagged
@@ -109,6 +111,41 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1648318550784961951, guid: edcc86a903182d0429c0d7b2c727fec0, type: 3}
+--- !u!114 &8684757733118405891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510141063021254879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b539c0b17b745049ab7f8d00f34d490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOn: 0
+  pointLight: {fileID: 4220554822487122790}
+--- !u!65 &6691278233053192084
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510141063021254879}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15, y: 5, z: 15}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8712300021360254310
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7206927362178746234
 Transform:
   m_ObjectHideFlags: 0
