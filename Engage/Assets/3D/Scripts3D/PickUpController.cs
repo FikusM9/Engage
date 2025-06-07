@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PickUpController : MonoBehaviour
 {
-    public Sprite icon;
-    public int id;
-
+    public Sprite icon = null;
+    public int id = -1;
 }

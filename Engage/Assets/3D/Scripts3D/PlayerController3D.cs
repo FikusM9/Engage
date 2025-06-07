@@ -75,7 +75,7 @@ public class PlayerController3D : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
 
-        Vector3 targetMove = (transform.right*moveX + transform.forward*moveY);
+        Vector3 targetMove = (transform.right*moveX + transform.forward*moveY).normalized;
         /*if (velocity.y > 0.1f)
             move = targetMove;
         else */if (targetMove.magnitude < 0.2f)
@@ -85,7 +85,7 @@ public class PlayerController3D : MonoBehaviour
 
         float currentSpeed = isGrounded ? speed : speed / 4;
 
-        velocity.y += 1.8f * gravity * Time.deltaTime;
+        velocity.y += 3f * gravity * Time.deltaTime;
 
         characterController.Move(move*speed*Time.deltaTime + velocity * Time.deltaTime);
     }
@@ -95,7 +95,7 @@ public class PlayerController3D : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * gravity * -2f);
+            velocity.y = Mathf.Sqrt(jumpHeight * gravity * -5f);
         }
 
     }
@@ -140,11 +140,15 @@ public class PlayerController3D : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             if (triggeredItem == null) return;
+            
             pickedItems.Add(triggeredItem);
+            Debug.Log(triggeredItem.gameObject);
             Sprite sprite = triggeredItem.GetComponent<PickUpController>().icon;
             int itemId = triggeredItem.GetComponent<PickUpController>().id;
-            inventoryController.AddItem(sprite, itemId);
             triggeredItem.SetActive(false);
+            triggeredItem = null;
+            if (sprite == null) return;
+            inventoryController.AddItem(sprite, itemId);
         }
     }
 
