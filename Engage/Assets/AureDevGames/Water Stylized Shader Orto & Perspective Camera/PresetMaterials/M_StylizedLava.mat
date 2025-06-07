@@ -21,13 +21,11 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_StylizedLava
-  m_Shader: {fileID: -6465566751694194690, guid: 8eef88ae773ef5f4dbe4da56da89303b,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 8eef88ae773ef5f4dbe4da56da89303b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _PERSPECTIVE
-  - _WORLD_SPACE_UV
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -35,7 +33,7 @@ Material:
   m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _WaveLength
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -108,11 +106,11 @@ Material:
     - _HorizonDistance: 200
     - _IntersectionFoamBlend: 1.09
     - _IntersectionFoamCutoff: 1.85
-    - _IntersectionFoamDepth: 2.43
+    - _IntersectionFoamDepth: 1.59
     - _IntersectionFoamDirection: 0
     - _IntersectionFoamFade: 1.48
-    - _IntersectionFoamSpeed: 0.38
-    - _IntersectionFoamTiling: 1.27
+    - _IntersectionFoamSpeed: 0.1
+    - _IntersectionFoamTiling: 0.75
     - _LightingHardness: 0.39
     - _LightingSmoothness: 12.34
     - _NormalScale: 1.61
@@ -128,17 +126,17 @@ Material:
     - _ReflectionDistortion: 0.38
     - _RefractionScale: 10
     - _RefractionSpeed: 0.05
-    - _RefractionStrength: 0.01
+    - _RefractionStrength: 0.001
     - _RippleStrength: 83.62
     - _SecondaryFoamBlend: 0.06
     - _SkyboxForce: 2.5
     - _Steps: 50
     - _SurfaceFoamDirection: 1
-    - _SurfaceFoamDistorsion: 1.6
+    - _SurfaceFoamDistorsion: 1.01
     - _SurfaceFoamSpeed: 0
     - _SurfaceFoamTiling: 1.11
     - _TileSize: 200
-    - _WORLD_SPACE_UV: 1
+    - _WORLD_SPACE_UV: 0
     - _WaterAlpha: 1
     - _WaterMetallic: 0.577
     - _WaterSmoothness: 0.581
