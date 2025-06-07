@@ -1,10 +1,19 @@
+using System;
 using UnityEngine;
 using System.Collections;
+using Random = UnityEngine.Random;
 
 public class CameraShake : MonoBehaviour
 {
+    public static CameraShake ShakeInstance;
+    
     private Vector3 _initialPosition;
     private Coroutine _shakeRoutine;
+
+    public void Awake()
+    {
+        
+    }
 
     void OnEnable()
     {

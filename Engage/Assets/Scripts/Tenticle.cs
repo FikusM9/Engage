@@ -43,7 +43,6 @@ public class Tenticle : MonoBehaviour
             Vector3 targetpos=segpos[i-1] +(segpos[i]-segpos[i-1]).normalized*targetdist;
             segpos[i] = Vector3.SmoothDamp(segpos[i], targetpos , ref _segspeed[i], smoothspeed);
             segpos[i].z = 2;
-            print(segpos[i]);
         }
         lr.SetPositions(segpos);
     }

@@ -206,6 +206,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1546508176}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &218648882 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2230407076217016773, guid: 949521f5cb25f0f499ad1712a42a48ab, type: 3}
+  m_PrefabInstance: {fileID: 318763070581781604}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &221494657
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +224,7 @@ GameObject:
   - component: {fileID: 221494659}
   - component: {fileID: 221494658}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -302,7 +307,7 @@ RectTransform:
   m_Children:
   - {fileID: 997867949}
   - {fileID: 1597846845}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 218648882}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -536,7 +541,7 @@ GameObject:
   - component: {fileID: 1170954485}
   - component: {fileID: 1170954486}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1208,7 +1213,7 @@ GameObject:
   - component: {fileID: 1665314717}
   - component: {fileID: 1665314716}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1290,7 +1295,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1665975712}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 218648882}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1578,6 +1583,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 110409204822212790, guid: 949521f5cb25f0f499ad1712a42a48ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360951285469707971, guid: 949521f5cb25f0f499ad1712a42a48ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2230407076217016773, guid: 949521f5cb25f0f499ad1712a42a48ab, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.43451548
@@ -1622,6 +1635,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: TransitionManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4505151192535906517, guid: 949521f5cb25f0f499ad1712a42a48ab, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713076419510408434, guid: 949521f5cb25f0f499ad1712a42a48ab, type: 3}
+      propertyPath: m_Color.a
+      value: 0.5254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892606890399796735, guid: 949521f5cb25f0f499ad1712a42a48ab, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5766275868382429697, guid: 949521f5cb25f0f499ad1712a42a48ab, type: 3}
       propertyPath: myCamera
       value: 
@@ -1646,9 +1671,23 @@ PrefabInstance:
       propertyPath: noiseBlockerImage
       value: 
       objectReference: {fileID: 1597846846}
+    - target: {fileID: 7945846721398440211, guid: 949521f5cb25f0f499ad1712a42a48ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9098697949667928756, guid: 949521f5cb25f0f499ad1712a42a48ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2230407076217016773, guid: 949521f5cb25f0f499ad1712a42a48ab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 221494661}
+    - targetCorrespondingSourceObject: {fileID: 2230407076217016773, guid: 949521f5cb25f0f499ad1712a42a48ab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1665314719}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 949521f5cb25f0f499ad1712a42a48ab, type: 3}
 --- !u!1001 &1132500825408801234
@@ -1896,8 +1935,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1170954484}
-  - {fileID: 221494661}
-  - {fileID: 1665314719}
   - {fileID: 1891454209}
   - {fileID: 1132500825408801234}
   - {fileID: 1693965944}
