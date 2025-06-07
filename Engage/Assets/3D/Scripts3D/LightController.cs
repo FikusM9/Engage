@@ -9,10 +9,10 @@ public class LightController : MonoBehaviour
     public bool isOn = true;
 
     public Light pointLight;
-    float minIntensity = 10f;
-    float maxIntensity = 30f;
-    float minTime = 1f;
-    float maxTime = 3f;
+    float minIntensity = 18f;
+    float maxIntensity = 20f;
+    float minTime = 0.2f;
+    float maxTime = 1f;
     void Start()
     {
         if (isOn)
