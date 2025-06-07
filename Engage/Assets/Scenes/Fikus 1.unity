@@ -10870,6 +10870,7 @@ GameObject:
   - component: {fileID: 1170954482}
   - component: {fileID: 1170954485}
   - component: {fileID: 1170954486}
+  - component: {fileID: 1170954487}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -11007,6 +11008,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc4e906867e8fa04b9cdd098d8724194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1170954487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170954481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3064aa6d98ae6dd4c9be4a1f2ea61752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 829317145}
+  smoothTime: 0.5
+  offset: {x: 0, y: 0, z: -10}
 --- !u!1001 &1171846482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20450,16 +20466,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1665975713}
     - target: {fileID: 5766275868382429697, guid: 949521f5cb25f0f499ad1712a42a48ab, type: 3}
+      propertyPath: noiseBlockerEnd.a
+      value: 0.9411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 5766275868382429697, guid: 949521f5cb25f0f499ad1712a42a48ab, type: 3}
       propertyPath: noiseBlockerEnd.b
-      value: 0.52429694
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5766275868382429697, guid: 949521f5cb25f0f499ad1712a42a48ab, type: 3}
       propertyPath: noiseBlockerEnd.g
-      value: 0.61944807
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5766275868382429697, guid: 949521f5cb25f0f499ad1712a42a48ab, type: 3}
       propertyPath: noiseBlockerEnd.r
-      value: 0.8113208
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5766275868382429697, guid: 949521f5cb25f0f499ad1712a42a48ab, type: 3}
       propertyPath: noiseBlockerImage
@@ -20536,6 +20556,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5200202889267698329, guid: c950c607dc3faf045aca7d95043f4679, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1170954483}
     - target: {fileID: 6895010688390295080, guid: c950c607dc3faf045aca7d95043f4679, type: 3}
       propertyPath: m_Enabled
       value: 0
