@@ -160,7 +160,10 @@ public class PlayerController3D : MonoBehaviour
         {
             canPickUp = false;
             scope.color = scopeGray;
-            triggeredItem.transform.GetChild(0).gameObject.SetActive(false);
+            if(triggeredItem != null)
+            {
+                triggeredItem.transform.GetChild(0).gameObject.SetActive(false);
+            }
             triggeredItem = null;
         }
     }
@@ -176,7 +179,7 @@ public class PlayerController3D : MonoBehaviour
                 audioSource.PlayOneShot(loot);
 
             pickedItems.Add(triggeredItem);
-            Debug.Log(triggeredItem.gameObject);
+            //Debug.Log(triggeredItem.gameObject);
             Sprite sprite = triggeredItem.GetComponent<PickUpController>().icon;
             int itemId = triggeredItem.GetComponent<PickUpController>().id;
             triggeredItem.SetActive(false);
