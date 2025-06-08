@@ -162,7 +162,8 @@ public class PlayerController3D : MonoBehaviour
         {
             canPickUp = false;
             scope.color = scopeGray;
-            triggeredItem.transform.GetChild(0).gameObject.SetActive(false);
+            if(triggeredItem != null)
+                triggeredItem.transform.GetChild(0).gameObject.SetActive(false);
             triggeredItem = null;
         }
     }
