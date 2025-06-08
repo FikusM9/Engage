@@ -20,6 +20,8 @@ public class InventoryController : MonoBehaviour
     {
         inventory = new List<int>();
         hotBarSelector = hotBar.GetComponent<UIHotbarSelector>();
+        
+        hotBarSelector.MoveSelector(0);
     }
 
     void Update()

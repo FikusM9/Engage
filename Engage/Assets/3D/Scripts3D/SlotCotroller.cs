@@ -6,34 +6,32 @@ using UnityEngine.UI;
 
 public class SlotCotroller : MonoBehaviour
 {
-    bool isFree = true;
+    [SerializeField] private TextMeshProUGUI itemCountText;
+    [SerializeField] private Image itemImage;
+    
+    protected bool isFree = true;
 
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
     public void AddItem(Sprite image, bool isNew)
     {
         if (!isNew)
         {
-            TextMeshProUGUI itemCount = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-            int count = int.Parse(itemCount.text);
+            TextMeshProUGUI targetCount = itemCountText ?? transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+            
+            int count = int.Parse(targetCount.text);
             count++;
-            itemCount.text = count.ToString();
+            targetCount.text = count.ToString();
 
         }
         else
         {
-            Image slotImage = transform.GetChild(0).GetComponent<Image>();
-            slotImage.sprite = image;
-            slotImage.gameObject.SetActive(true);
+            Image targetImage = itemImage ?? transform.GetChild(0).GetComponent<Image>();
+            targetImage.sprite = image;
+            targetImage.gameObject.SetActive(true);
             TextMeshProUGUI itemCount = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
             itemCount.text = "1";
             isFree = false;
