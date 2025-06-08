@@ -154,11 +154,13 @@ public class PlayerController3D : MonoBehaviour
             canPickUp = true;
             scope.color = scopeYellow;
             triggeredItem = hit.collider.gameObject;
+            triggeredItem.transform.GetChild(0).gameObject.SetActive(true);
         }
         else if (!isHit && canPickUp)
         {
             canPickUp = false;
             scope.color = scopeGray;
+            triggeredItem.transform.GetChild(0).gameObject.SetActive(false);
             triggeredItem = null;
         }
     }
@@ -221,6 +223,7 @@ public class PlayerController3D : MonoBehaviour
             {
                 canPickUp = false;
                 scope.color = scopeGray;
+                triggeredItem.transform.GetChild(0).gameObject.SetActive(false);
                 triggeredItem = null;
             }
         }
