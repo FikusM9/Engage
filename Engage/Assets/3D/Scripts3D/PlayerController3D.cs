@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController3D : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class PlayerController3D : MonoBehaviour
     public AudioClip loot;
     public AudioClip lava;
     public AudioClip walk;
+    public AudioClip hit;
+    public AudioClip win;
     public GameObject lavaVisualEffect;
 
     CharacterController characterController;
@@ -204,6 +207,8 @@ public class PlayerController3D : MonoBehaviour
                 GameManager.HasKey = true;
             }
             
+            triggeredItem.GetComponent<PickUpController>().Destroy2d();
+            
             //Debug.Log(triggeredItem.gameObject);
             Sprite sprite = triggeredItem.GetComponent<PickUpController>().icon;
             int itemId = triggeredItem.GetComponent<PickUpController>().id;
@@ -240,12 +245,20 @@ public class PlayerController3D : MonoBehaviour
         {
             GameManager.CurrentCheckPointIndex= other.gameObject.transform.GetSiblingIndex();
         }
-        else if (other.gameObject.CompareTag("Door") && !isDoorOpen)
+        else if (other.gameObject.CompareTag("Door") && GameManager.HasKey)
         {
             Animator doorAnimator = other.gameObject.GetComponent<Animator>();
             doorAnimator.SetTrigger("Open");
             isDoorOpen = true;
+            StartCoroutine(Win());
         }
+    }
+
+    IEnumerator Win()
+    {
+        audioSource.PlayOneShot(win);
+        yield return new WaitForSeconds(2.3f);
+        SceneManager.LoadScene(3);
     }
 
     private void OnTriggerExit(Collider other)
@@ -276,7 +289,8 @@ public class PlayerController3D : MonoBehaviour
     {
         while (inLava)
         {
-            Debug.Log("GORIMMM");
+            audioSource.PlayOneShot(hit);
+            GameManager.Health--;
             yield return new WaitForSeconds(1);
         }
     }

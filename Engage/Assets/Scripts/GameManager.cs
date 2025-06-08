@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,9 +33,18 @@ public class GameManager : MonoBehaviour
     private Transform _chekpoints2d;
     private Transform _chekpoints3d;
     private Transform _enemies;
+    
+    public TextMeshProUGUI healthText;
+    public TextMeshProUGUI arrowsText;
+    public Image keyImage;
 
     private void Awake()
     {
+        CurrentBulletCount = 0;
+        Health = 3;
+        HasCrossbow = false;
+        keyImage.enabled = false;
+        HasKey = false;
         _chekpoints2d = GameObject.Find("CheckPoints2d").transform;
         _chekpoints3d = GameObject.Find("CheckPoints3d").transform;
         _enemies = GameObject.Find("Enemyes").transform;
@@ -50,7 +61,7 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         Vector3 mouseScreen = Input.mousePosition;
-        mouseScreen.z = Camera.main.nearClipPlane + 10f; 
+        mouseScreen.z = Camera.main.nearClipPlane + 10f;
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(mouseScreen);
         mouseWorld.z = 0f;
         scene2d.SetActive(true);
@@ -59,6 +70,8 @@ public class GameManager : MonoBehaviour
         {
             enemy.GetComponent<Enemy1>().ResetPosition();
         }
+        
+        if(HasKey) keyImage.enabled = true;
         
         player2d.transform.position = _chekpoints2d.GetChild(CurrentCheckPointIndex).position;
         myCamera.GetComponent<CameraFollow>().enabled = true;
@@ -88,11 +101,17 @@ public class GameManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Health <= 0)
+        {
+            SceneManager.LoadScene(2);
+        }
         Timer-=Time.fixedDeltaTime;
         if (Timer <= 0f)
         {
             if(is2d) Start3d();
             else Start2d();
         }
+        healthText.text = Health.ToString();
+        arrowsText.text = CurrentBulletCount.ToString();
     }
 }
