@@ -12,9 +12,12 @@ public class Enemy1 : MonoBehaviour
 
     private Vector2 _startingPosition;
     
+    private AudioSource _audioSource;
+    public AudioClip hitSound;
     
     private void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         MyCamera= Camera.main;
     }
 
@@ -22,7 +25,7 @@ public class Enemy1 : MonoBehaviour
     {
         if(other.CompareTag("Arrow"))
         {
-            other.GetComponent<Arrow>().PlayHitSound();
+            AudioSource.PlayClipAtPoint(hitSound, Camera.main.transform.position);
             MyCamera.GetComponent<CameraFollow>().TriggerShake(0.2f, 0.1f);
             bloodParticles.particles.Play();
             bloodParticles.transform.SetParent(null);

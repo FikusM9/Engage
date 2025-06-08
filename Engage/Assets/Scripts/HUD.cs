@@ -14,13 +14,19 @@ public class HUD : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthText.text = CurrentHealth.ToString();
-        switchText.text = SwitchTime.ToString();
+        UpdateHealth(CurrentHealth);
+        UpdateTime(SwitchTime);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateHealth(uint newHealth)
     {
-        
+        CurrentHealth = newHealth;
+        healthText.text = CurrentHealth.ToString();
+    }
+
+    public void UpdateTime(int newTime)
+    {
+        SwitchTime = (int)newTime;
+        switchText.text = SwitchTime.ToString();
     }
 }

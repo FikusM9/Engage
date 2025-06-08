@@ -53,7 +53,7 @@ MonoBehaviour:
   noiseBlockerEnd: {r: 0.6886792, g: 0.27612138, b: 0.27612138, a: 0.9411765}
   cameraSizeStart: 3
   cameraSizeEnd: 8
-  boomSound: {fileID: 8300000, guid: 9ba2486e5da083d4c9475eb3cdad9468, type: 3}
+  boomSound: {fileID: 8300000, guid: 97b07d1a7987c5744be43283f48241ed, type: 3}
 --- !u!82 &5014710797085680010
 AudioSource:
   m_ObjectHideFlags: 0

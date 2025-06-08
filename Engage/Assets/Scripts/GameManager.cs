@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public static int CurrentBulletCount = 10;
     public static int CurrentStopWatchCount = 10;
     public static int Health = 3;
+    public static bool HasCrossbow = false;
+    public static bool HasKey = false;
     public bool is2d = true;
     public static float Timer;
     public float time2d = 10f;

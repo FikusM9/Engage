@@ -104,7 +104,7 @@ MonoBehaviour:
   initialSpeed: 5
   acceleration: 50
   maxSpeed: 100
-  shootSound: {fileID: 8300000, guid: a65c3bb08a111784f9eac5d0c9810c6a, type: 3}
+  shootSound: {fileID: 8300000, guid: bc0c1256aea4c55428b4ddf5a60bce34, type: 3}
   hitSound: {fileID: 8300000, guid: 6818ec72cc69e6841bb2c3114b79c298, type: 3}
 --- !u!60 &7820948275926743034
 PolygonCollider2D:

@@ -300,6 +300,7 @@ MonoBehaviour:
   rb: {fileID: 5738621860975534378}
   rotationSpeed: 10
   myArrow: {fileID: 7774143269128544525}
+  myCrossbow: {fileID: 7809497698112164691}
   arrowPrefab: {fileID: 328810885831727932, guid: 6d66e8d13b5c12a459ab8631546bfe89, type: 3}
   head: {fileID: 2855539788584871467}
   arm1: {fileID: 8436866403510212}
