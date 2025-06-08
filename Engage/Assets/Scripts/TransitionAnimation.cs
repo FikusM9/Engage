@@ -20,11 +20,14 @@ public class TransitionAnimation : MonoBehaviour
     private float _transition1Timer;
     private float _transition2Timer;
     private bool _transitionInProgress;
+    
+    private AudioSource _audioSource;
+    public AudioClip boomSound;
 
 
     private void Awake()
     {
-        
+        _audioSource = GetComponent<AudioSource>();
     }
     
 
@@ -89,13 +92,12 @@ public class TransitionAnimation : MonoBehaviour
     
     public void StartTransition1()
     {
-        print("Trans1");
         _transition1Timer = transitionDuration;
     }
     
     public void StartTransition2()
     {
-        print("Trans2");
+        _audioSource.PlayOneShot(boomSound);
         myCamera.GetComponent<CameraFollow>().TriggerShake(transitionDuration, 0.2f);
         _transitionInProgress = true;
         _transition2Timer = transitionDuration;
