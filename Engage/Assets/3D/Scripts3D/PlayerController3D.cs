@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController3D : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class PlayerController3D : MonoBehaviour
     public AudioClip lava;
     public AudioClip walk;
     public AudioClip hit;
+    public AudioClip win;
     public GameObject lavaVisualEffect;
 
     CharacterController characterController;
@@ -248,7 +250,15 @@ public class PlayerController3D : MonoBehaviour
             Animator doorAnimator = other.gameObject.GetComponent<Animator>();
             doorAnimator.SetTrigger("Open");
             isDoorOpen = true;
+            StartCoroutine(Win());
         }
+    }
+
+    IEnumerator Win()
+    {
+        audioSource.PlayOneShot(win);
+        yield return new WaitForSeconds(2.3f);
+        SceneManager.LoadScene(3);
     }
 
     private void OnTriggerExit(Collider other)

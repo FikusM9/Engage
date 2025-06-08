@@ -7,6 +7,6 @@ public class PlayButton : MonoBehaviour
 {
     public void ButtonPressed()
     {
-        SceneManager.LoadScene("Scenes/3D");
+        SceneManager.LoadScene(1);
     }
 }
