@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemyproba : MonoBehaviour 
+public class EnemyWander : MonoBehaviour 
 {
     public float amplitude = 2f;
     public float frequency = 1f;
@@ -35,8 +35,8 @@ public class Enemyproba : MonoBehaviour
 
         // Apply force to reach target velocity
         Vector2 force = new Vector2(
-            (targetXVelocity - rb.linearVelocity.x) * rb.mass,
-            (targetYVelocity - rb.linearVelocity.y) * rb.mass
+            (targetXVelocity - rb.velocity.x) * rb.mass,
+            (targetYVelocity - rb.velocity.y) * rb.mass
         );
 
         rb.AddForce(force);

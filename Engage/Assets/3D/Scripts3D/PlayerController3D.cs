@@ -13,6 +13,10 @@ public class PlayerController3D : MonoBehaviour
     public Transform camTransform;
     public TextMeshProUGUI scope;
     public GameObject inventory;
+    public AudioClip loot;
+    public AudioClip lava;
+    public AudioClip walk;
+    public GameObject lavaVisualEffect;
 
     CharacterController characterController;
 
@@ -36,6 +40,10 @@ public class PlayerController3D : MonoBehaviour
     InventoryController inventoryController;
 
     bool inLava = false;
+
+    AudioSource audioSource;
+
+    bool isWalking = false;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -46,13 +54,16 @@ public class PlayerController3D : MonoBehaviour
         pickedItems = new List<GameObject>();
         if(inventory != null)
             inventoryController = inventory.GetComponent<InventoryController>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
         isGrounded = characterController.isGrounded;
         if (isGrounded && velocity.y < 0)
+        {
             velocity.y = -2f;
+        }
 
         Jump();
         Move();
@@ -63,10 +74,6 @@ public class PlayerController3D : MonoBehaviour
         ScopeDetection();
         PickUp();
 
-        /*if (inLava)
-        {
-            Debug.Log("GORIMMM");
-        }*/
 
     }
 
@@ -76,12 +83,30 @@ public class PlayerController3D : MonoBehaviour
         float moveY = Input.GetAxis("Vertical");
 
         Vector3 targetMove = (transform.right*moveX + transform.forward*moveY).normalized;
-        /*if (velocity.y > 0.1f)
-            move = targetMove;
-        else */if (targetMove.magnitude < 0.2f)
+        
+        if (targetMove.magnitude < 0.2f)
+        {
             move = Vector3.zero;
+        }
         else
+        {
             move = Vector3.Lerp(move, targetMove, acceleration * Time.deltaTime);
+            if (!isWalking)
+            {
+                isWalking = true;
+                audioSource.Play();
+            }
+        }
+
+        if (!isGrounded || move == Vector3.zero)
+        {
+            if (!inLava && isWalking)
+            {
+                isWalking = false;
+                audioSource.Pause();
+            }
+        }
+            
 
         float currentSpeed = isGrounded ? speed : speed / 4;
 
@@ -140,7 +165,10 @@ public class PlayerController3D : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             if (triggeredItem == null) return;
-            
+
+            audioSource.loop = false;
+            audioSource.PlayOneShot(loot);
+
             pickedItems.Add(triggeredItem);
             Debug.Log(triggeredItem.gameObject);
             Sprite sprite = triggeredItem.GetComponent<PickUpController>().icon;
@@ -162,7 +190,11 @@ public class PlayerController3D : MonoBehaviour
         {
             if (!inLava)
             {
+                audioSource.clip = lava;
+                audioSource.loop = true;
+                audioSource.Play();
                 inLava = true;
+                lavaVisualEffect.SetActive(true);
                 StartCoroutine(InLava());
             }
         }
@@ -183,6 +215,9 @@ public class PlayerController3D : MonoBehaviour
         else if (other.gameObject.CompareTag("Lava"))
         {
             inLava = false;
+            lavaVisualEffect.SetActive(false);
+            audioSource.Pause();
+            audioSource.clip = walk;
         }
     }
 
