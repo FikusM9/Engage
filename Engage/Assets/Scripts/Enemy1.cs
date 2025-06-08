@@ -14,11 +14,22 @@ public class Enemy1 : MonoBehaviour
     
     private AudioSource _audioSource;
     public AudioClip hitSound;
-    
+
+
+    private void Awake()
+    {
+        _startingPosition = transform.position;
+    }
+
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
         MyCamera= Camera.main;
+    }
+    
+    public void ResetPosition()
+    {
+        transform.position = _startingPosition;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

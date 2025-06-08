@@ -30,11 +30,13 @@ public class GameManager : MonoBehaviour
     public static int CurrentCheckPointIndex;
     private Transform _chekpoints2d;
     private Transform _chekpoints3d;
+    private Transform _enemies;
 
     private void Awake()
     {
         _chekpoints2d = GameObject.Find("CheckPoints2d").transform;
         _chekpoints3d = GameObject.Find("CheckPoints3d").transform;
+        _enemies = GameObject.Find("Enemyes").transform;
         Start3d();
         //MyCamera = FindObjectOfType<Camera>();
     }
@@ -52,6 +54,12 @@ public class GameManager : MonoBehaviour
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(mouseScreen);
         mouseWorld.z = 0f;
         scene2d.SetActive(true);
+        
+        foreach (Transform enemy in _enemies)
+        {
+            enemy.GetComponent<Enemy1>().ResetPosition();
+        }
+        
         player2d.transform.position = _chekpoints2d.GetChild(CurrentCheckPointIndex).position;
         myCamera.GetComponent<CameraFollow>().enabled = true;
         myCamera.transform.position = new Vector3(player2d.transform.position.x, player2d.transform.position.y, -5f);
@@ -68,7 +76,7 @@ public class GameManager : MonoBehaviour
         is2d = false;
         Cursor.visible = false;
         scene3d.SetActive(true);
-        player3d.transform.position = _chekpoints3d.GetChild(CurrentCheckPointIndex).position + new Vector3(0f,10.6f,0f);
+        player3d.transform.position = _chekpoints3d.GetChild(CurrentCheckPointIndex).position + new Vector3(0f,8f,0f);
         myCamera.GetComponent<CameraFollow>().enabled = false;
         myCamera.transform.position = player3d.transform.position;
         myCamera.transform.rotation = Quaternion.identity;
