@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1) && GameManager.CurrentStopWatchCount > 0 && GameManager.Timer > 1.1f)
         {
-            GameManager.HasCrossbow = true;
+            //GameManager.HasCrossbow = true;
             //UseStopWatch();
         }
     }

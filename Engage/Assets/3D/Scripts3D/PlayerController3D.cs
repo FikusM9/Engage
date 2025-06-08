@@ -179,6 +179,29 @@ public class PlayerController3D : MonoBehaviour
                 audioSource.PlayOneShot(loot);
 
             pickedItems.Add(triggeredItem);
+            
+            GameObject myTag = triggeredItem.transform.Find("MyTag").gameObject;
+            
+            if(myTag.CompareTag("Crossbow"))
+            {
+                GameManager.HasCrossbow = true;
+            }
+
+            if (myTag.CompareTag("ArrowPickUp"))
+            {
+                GameManager.CurrentBulletCount++;
+            }
+
+            if (myTag.CompareTag("Heal"))
+            {
+                GameManager.Health++;
+            }
+
+            if (myTag.CompareTag("Key"))
+            {
+                GameManager.HasKey = true;
+            }
+            
             //Debug.Log(triggeredItem.gameObject);
             Sprite sprite = triggeredItem.GetComponent<PickUpController>().icon;
             int itemId = triggeredItem.GetComponent<PickUpController>().id;
