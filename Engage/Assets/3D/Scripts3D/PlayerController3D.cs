@@ -17,6 +17,7 @@ public class PlayerController3D : MonoBehaviour
     public AudioClip loot;
     public AudioClip lava;
     public AudioClip walk;
+    public AudioClip hit;
     public GameObject lavaVisualEffect;
 
     CharacterController characterController;
@@ -181,6 +182,31 @@ public class PlayerController3D : MonoBehaviour
                 audioSource.PlayOneShot(loot);
 
             pickedItems.Add(triggeredItem);
+            
+            GameObject myTag = triggeredItem.transform.Find("MyTag").gameObject;
+            
+            if(myTag.CompareTag("Crossbow"))
+            {
+                GameManager.HasCrossbow = true;
+            }
+
+            if (myTag.CompareTag("ArrowPickUp"))
+            {
+                GameManager.CurrentBulletCount++;
+            }
+
+            if (myTag.CompareTag("Heal"))
+            {
+                GameManager.Health++;
+            }
+
+            if (myTag.CompareTag("Key"))
+            {
+                GameManager.HasKey = true;
+            }
+            
+            triggeredItem.GetComponent<PickUpController>().Destroy2d();
+            
             //Debug.Log(triggeredItem.gameObject);
             Sprite sprite = triggeredItem.GetComponent<PickUpController>().icon;
             int itemId = triggeredItem.GetComponent<PickUpController>().id;
@@ -217,7 +243,7 @@ public class PlayerController3D : MonoBehaviour
         {
             GameManager.CurrentCheckPointIndex= other.gameObject.transform.GetSiblingIndex();
         }
-        else if (other.gameObject.CompareTag("Door") && !isDoorOpen)
+        else if (other.gameObject.CompareTag("Door") && GameManager.HasKey)
         {
             Animator doorAnimator = other.gameObject.GetComponent<Animator>();
             doorAnimator.SetTrigger("Open");
@@ -253,7 +279,8 @@ public class PlayerController3D : MonoBehaviour
     {
         while (inLava)
         {
-            Debug.Log("GORIMMM");
+            audioSource.PlayOneShot(hit);
+            GameManager.Health--;
             yield return new WaitForSeconds(1);
         }
     }

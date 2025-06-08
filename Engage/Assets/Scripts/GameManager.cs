@@ -12,15 +12,15 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public static event System.Action OnStart2d;
     public static event System.Action OnStart3d;
-    public static int CurrentBulletCount = 10;
+    public static int CurrentBulletCount = 0;
     public static int CurrentStopWatchCount = 10;
     public static int Health = 3;
     public static bool HasCrossbow = false;
     public static bool HasKey = false;
     public bool is2d = true;
     public static float Timer;
-    public float time2d = 10f;
-    public float time3d = 10f;
+    public float time2d = 10.15f;
+    public float time3d = 10.15f;
     public Camera myCamera;
     public GameObject scene2d;
     public GameObject scene3d;
