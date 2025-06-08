@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeed = 10f;
     
     public GameObject myArrow;
+    public GameObject myCrossbow;
     public GameObject arrowPrefab;
     private CameraShake _cameraShake;
     private Animator _animator;
@@ -28,12 +29,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnEnable()
     {
+        
         _audioSource = GetComponent<AudioSource>();
         _animator = GetComponent<Animator>();
         _cameraShake = FindObjectOfType<CameraShake>();
-        if (GameManager.CurrentBulletCount > 0)
+        if (!GameManager.HasCrossbow)
         {
-            myArrow.SetActive(true);
+            myArrow.SetActive(false);
+            myCrossbow.SetActive(false);
+        }
+        else
+        {
+            myCrossbow.SetActive(true);
+            if (GameManager.CurrentBulletCount > 0)
+            {
+                myArrow.SetActive(true);
+            }
+            else
+            {
+                myArrow.SetActive(false);
+            }
         }
     }
 
@@ -43,14 +58,15 @@ public class PlayerMovement : MonoBehaviour
         
         _movement.y = Input.GetAxisRaw("Vertical");
         
-        if (Input.GetMouseButtonDown(0) && GameManager.CurrentBulletCount > 0)
+        if (Input.GetMouseButtonDown(0) && GameManager.CurrentBulletCount > 0 && GameManager.HasCrossbow)
         {
             SpawnArrow();
         }
 
         if (Input.GetMouseButtonDown(1) && GameManager.CurrentStopWatchCount > 0 && GameManager.Timer > 1.1f)
         {
-            UseStopWatch();
+            GameManager.HasCrossbow = true;
+            //UseStopWatch();
         }
     }
     void FixedUpdate() 

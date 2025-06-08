@@ -1,6 +1,7 @@
 // This script allows for controlling the hotbar selection square using the mouse wheel.
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIHotbarSelector : MonoBehaviour
 {
@@ -10,23 +11,20 @@ public class UIHotbarSelector : MonoBehaviour
     [SerializeField] private int maxSlots = 6;
 
     private int currentIndex = 0;
-
-    void Start()
-    {
-        MoveSelector(0);
-    }
-
+    
     void Update()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (scroll > 0f)
         {
-            currentIndex = (currentIndex - 1 + maxSlots) % maxSlots;
+            int oldIndex = currentIndex;
+            currentIndex = (oldIndex - 1 + maxSlots) % maxSlots;
             MoveSelector(currentIndex);
         }
         else if (scroll < 0f)
         {
-            currentIndex = (currentIndex + 1) % maxSlots;
+            int oldIndex = currentIndex;
+            currentIndex = (oldIndex + 1) % maxSlots;
             MoveSelector(currentIndex);
         }
     }
