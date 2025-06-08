@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 5272502549559026493}
   - component: {fileID: 2027978413687847883}
   - component: {fileID: 8607701801889836664}
+  - component: {fileID: 7820948275926743034}
   m_Layer: 0
   m_Name: Arrow
-  m_TagString: Untagged
+  m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,6 +103,67 @@ MonoBehaviour:
   initialSpeed: 5
   acceleration: 50
   maxSpeed: 100
+--- !u!60 &7820948275926743034
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328810885831727932}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.23908526, y: -0.08753258}
+      - {x: 0.48571348, y: 0.21524662}
+      - {x: 0.34375, y: 0.3671875}
+      - {x: 0.0390625, y: 0.671875}
+      - {x: -0.0546875, y: 0.671875}
+      - {x: -0.34375, y: 0.359375}
+      - {x: -0.49184674, y: 0.21308172}
+      - {x: -0.18754634, y: -0.11183858}
+      - {x: -0.13513917, y: -0.27124906}
+      - {x: -0.0703125, y: -0.34375}
+      - {x: -0.1015625, y: -0.421875}
+      - {x: -0.09375, y: -0.4921875}
+      - {x: 0.09375, y: -0.4921875}
+      - {x: 0.109375, y: -0.4140625}
+      - {x: 0.0625, y: -0.328125}
+      - {x: 0.18961857, y: -0.23922348}
+  m_UseDelaunayMesh: 0
 --- !u!1 &5797535243281410874
 GameObject:
   m_ObjectHideFlags: 0

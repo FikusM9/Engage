@@ -58,6 +58,7 @@ public class EnemyFollow : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (wallLayer == (wallLayer | (1 << collision.gameObject.layer)))
         {
             direction *= -1;
