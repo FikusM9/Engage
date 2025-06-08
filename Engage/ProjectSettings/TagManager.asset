@@ -7,6 +7,9 @@ TagManager:
   - Interactable
   - Lava
   - Player3D
+  - Enemy
+  - Arrow
+  - Door
   layers:
   - Default
   - TransparentFX

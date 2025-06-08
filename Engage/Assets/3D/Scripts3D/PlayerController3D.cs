@@ -44,6 +44,8 @@ public class PlayerController3D : MonoBehaviour
     AudioSource audioSource;
 
     bool isWalking = false;
+
+    bool isDoorOpen = false;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -202,6 +204,7 @@ public class PlayerController3D : MonoBehaviour
                 StartCoroutine(InLava());
             }
         }
+        
     }
 
     private void OnTriggerExit(Collider other)
