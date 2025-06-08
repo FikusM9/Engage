@@ -45,6 +45,8 @@ public class PlayerController3D : MonoBehaviour
     AudioSource audioSource;
 
     bool isWalking = false;
+
+    bool isDoorOpen = false;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -214,6 +216,12 @@ public class PlayerController3D : MonoBehaviour
         if (other.gameObject.CompareTag("CheckPoint"))
         {
             GameManager.CurrentCheckPointIndex= other.gameObject.transform.GetSiblingIndex();
+        }
+        else if (other.gameObject.CompareTag("Door") && !isDoorOpen)
+        {
+            Animator doorAnimator = other.gameObject.GetComponent<Animator>();
+            doorAnimator.SetTrigger("Open");
+            isDoorOpen = true;
         }
     }
 
