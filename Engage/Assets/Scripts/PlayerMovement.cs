@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,9 +22,13 @@ public class PlayerMovement : MonoBehaviour
     
     public Camera myCamera;
     
+    private AudioSource _audioSource;
+    public AudioClip hitSound;
+    
 
     private void OnEnable()
     {
+        _audioSource = GetComponent<AudioSource>();
         _animator = GetComponent<Animator>();
         _cameraShake = FindObjectOfType<CameraShake>();
         if (GameManager.CurrentBulletCount > 0)
@@ -101,16 +106,22 @@ public class PlayerMovement : MonoBehaviour
         {
             GetHit();
         }
+
+        if (other.gameObject.CompareTag("CheckPoint"))
+        {
+            GameManager.CurrentCheckPointIndex= other.gameObject.transform.GetSiblingIndex();
+        }
     }
 
     void UseStopWatch()
     {
-        GameManager.CurrentStopWatchCount--;
-        GameManager.Timer = 1.1f;
+        //GameManager.CurrentStopWatchCount--;
+        //GameManager.Timer = 1.1f;
     }
     
     public void GetHit()
     {
+        _audioSource.PlayOneShot(hitSound);
         GameManager.Health--;
         if (GameManager.Health <= 0)
         {

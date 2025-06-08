@@ -9,7 +9,7 @@ TagManager:
   - Player3D
   - Enemy
   - Arrow
-  - Door
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
@@ -19,8 +19,8 @@ TagManager:
   - UI
   - Interactable
   - PostProcessing
-  - Wall
   - Player
+  - Wall
   - 
   - 
   - 
