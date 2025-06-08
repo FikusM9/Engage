@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class PlayerController3D : MonoBehaviour
@@ -185,6 +186,8 @@ public class PlayerController3D : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
+        print("Trigger Entered: " + other.gameObject.name);
         if (other.gameObject.CompareTag("Interactable"))
         {
             isTriggered = true;
@@ -201,6 +204,11 @@ public class PlayerController3D : MonoBehaviour
                 lavaVisualEffect.SetActive(true);
                 StartCoroutine(InLava());
             }
+        }
+        
+        if (other.gameObject.CompareTag("CheckPoint"))
+        {
+            GameManager.CurrentCheckPointIndex= other.gameObject.transform.GetSiblingIndex();
         }
     }
 

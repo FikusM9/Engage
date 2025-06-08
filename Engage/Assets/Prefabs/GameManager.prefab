@@ -45,10 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is2d: 1
-  time2d: 100
+  time2d: 10.15
   time3d: 10.15
   myCamera: {fileID: 0}
   scene2d: {fileID: 0}
   scene3d: {fileID: 0}
   player3d: {fileID: 0}
   player2d: {fileID: 0}
+  camera3dOffset: {x: 0, y: 2.6, z: 0}

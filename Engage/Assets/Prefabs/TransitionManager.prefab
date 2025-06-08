@@ -49,6 +49,6 @@ MonoBehaviour:
   myCamera: {fileID: 0}
   transitionDuration: 1
   noiseBlockerStart: {r: 0, g: 0, b: 0, a: 1}
-  noiseBlockerEnd: {r: 1, g: 1, b: 1, a: 0.9607843}
+  noiseBlockerEnd: {r: 0.6886792, g: 0.27612138, b: 0.27612138, a: 0.9411765}
   cameraSizeStart: 3
   cameraSizeEnd: 8

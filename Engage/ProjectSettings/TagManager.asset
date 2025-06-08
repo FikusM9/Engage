@@ -7,6 +7,9 @@ TagManager:
   - Interactable
   - Lava
   - Player3D
+  - Enemy
+  - Arrow
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
@@ -16,8 +19,8 @@ TagManager:
   - UI
   - Interactable
   - PostProcessing
-  - Wall
   - Player
+  - Wall
   - 
   - 
   - 
