@@ -45,8 +45,6 @@ public class PlayerController3D : MonoBehaviour
     AudioSource audioSource;
 
     bool isWalking = false;
-
-    bool isDoorOpen = false;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -163,7 +161,9 @@ public class PlayerController3D : MonoBehaviour
             canPickUp = false;
             scope.color = scopeGray;
             if(triggeredItem != null)
+            {
                 triggeredItem.transform.GetChild(0).gameObject.SetActive(false);
+            }
             triggeredItem = null;
         }
     }
@@ -179,7 +179,7 @@ public class PlayerController3D : MonoBehaviour
                 audioSource.PlayOneShot(loot);
 
             pickedItems.Add(triggeredItem);
-            Debug.Log(triggeredItem.gameObject);
+            //Debug.Log(triggeredItem.gameObject);
             Sprite sprite = triggeredItem.GetComponent<PickUpController>().icon;
             int itemId = triggeredItem.GetComponent<PickUpController>().id;
             triggeredItem.SetActive(false);
@@ -210,12 +210,7 @@ public class PlayerController3D : MonoBehaviour
                 StartCoroutine(InLava());
             }
         }
-        else if (other.gameObject.CompareTag("Door") && !isDoorOpen)
-        {
-            Animator doorAnimator = other.gameObject.GetComponent<Animator>();
-            doorAnimator.SetTrigger("Open");
-            isDoorOpen = true;
-        }
+        
         if (other.gameObject.CompareTag("CheckPoint"))
         {
             GameManager.CurrentCheckPointIndex= other.gameObject.transform.GetSiblingIndex();
