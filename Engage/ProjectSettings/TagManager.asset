@@ -14,6 +14,8 @@ TagManager:
   - Key
   - ArrowPickUp
   - Heal
+  - Door
+  - NoiseBlockerImage
   layers:
   - Default
   - TransparentFX

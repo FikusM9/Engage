@@ -27,6 +27,7 @@ public class TransitionAnimation : MonoBehaviour
 
     private void Awake()
     {
+        noiseBlockerImage = GameObject.FindWithTag("NoiseBlockerImage").GetComponent<RawImage>();
         _audioSource = GetComponent<AudioSource>();
     }
     
@@ -40,7 +41,7 @@ public class TransitionAnimation : MonoBehaviour
     public void Start2d()
     {
         _transitionInProgress = false;
-        noiseBlockerImage.enabled = true;
+        if (noiseBlockerImage != null) noiseBlockerImage.enabled = true;
         StartTransition1();
     }
     

@@ -50,8 +50,11 @@ public class PlayerController3D : MonoBehaviour
     bool isWalking = false;
 
     bool isDoorOpen = false;
+    
+    public Vector3 startPosition;
     void Start()
     {
+        transform.position=startPosition;
         Cursor.lockState = CursorLockMode.Locked;
         characterController = GetComponent<CharacterController>();
         move = transform.position;
