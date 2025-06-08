@@ -101,6 +101,11 @@ public class PlayerMovement : MonoBehaviour
         {
             GetHit();
         }
+
+        if (other.gameObject.CompareTag("CheckPoint"))
+        {
+            GameManager.CurrentCheckPointIndex= other.gameObject.transform.GetSiblingIndex();
+        }
     }
 
     void UseStopWatch()
