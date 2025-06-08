@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Fikus.unity
-    guid: 5b3c6a6eb696dec419406a51020b7651
+    path: Assets/Scenes/MainMenu.unity
+    guid: 80867f68ca0d4f01da1c22446bc07ae9
   - enabled: 1
-    path: Assets/Scenes/Fikus2.unity
-    guid: 9b7ec539da9811e44bdb24ca731fcb54
+    path: Assets/Scenes/Fikus 2.unity
+    guid: ee15712939bfcf54f8aa5545c4d17961
+  - enabled: 1
+    path: Assets/Scenes/LossScreen.unity
+    guid: d7f06899f823d4c419bacdd46437a99f
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: acd0c2f914738ca4b95c67ed11fe0185
   m_configObjects: {}
