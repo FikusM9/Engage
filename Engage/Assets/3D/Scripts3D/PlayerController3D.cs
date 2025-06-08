@@ -94,7 +94,8 @@ public class PlayerController3D : MonoBehaviour
             if (!isWalking)
             {
                 isWalking = true;
-                audioSource.Play();
+                if(audioSource != null)
+                    audioSource.Play();
             }
         }
 
@@ -103,7 +104,8 @@ public class PlayerController3D : MonoBehaviour
             if (!inLava && isWalking)
             {
                 isWalking = false;
-                audioSource.Pause();
+                if (audioSource != null)
+                    audioSource.Pause();
             }
         }
             
@@ -167,7 +169,8 @@ public class PlayerController3D : MonoBehaviour
             if (triggeredItem == null) return;
 
             audioSource.loop = false;
-            audioSource.PlayOneShot(loot);
+            if (audioSource != null)
+                audioSource.PlayOneShot(loot);
 
             pickedItems.Add(triggeredItem);
             Debug.Log(triggeredItem.gameObject);
@@ -192,7 +195,8 @@ public class PlayerController3D : MonoBehaviour
             {
                 audioSource.clip = lava;
                 audioSource.loop = true;
-                audioSource.Play();
+                if (audioSource != null)
+                    audioSource.Play();
                 inLava = true;
                 lavaVisualEffect.SetActive(true);
                 StartCoroutine(InLava());
@@ -216,7 +220,8 @@ public class PlayerController3D : MonoBehaviour
         {
             inLava = false;
             lavaVisualEffect.SetActive(false);
-            audioSource.Pause();
+            if (audioSource != null)
+                audioSource.Pause();
             audioSource.clip = walk;
         }
     }
