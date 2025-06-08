@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is2d: 1
-  time2d: 10.15
+  time2d: 100
   time3d: 10.15
   myCamera: {fileID: 0}
   scene2d: {fileID: 0}

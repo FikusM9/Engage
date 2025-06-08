@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public static event System.Action OnStart3d;
     public static int CurrentBulletCount = 10;
     public static int CurrentStopWatchCount = 10;
+    public static int Health = 3;
     public bool is2d = true;
     public static float Timer;
     public float time2d = 10f;
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        Start2d();
+        Start3d();
         //MyCamera = FindObjectOfType<Camera>();
     }
    
@@ -66,7 +67,6 @@ public class GameManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        print(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         Timer-=Time.fixedDeltaTime;
         if (Timer <= 0f)
         {

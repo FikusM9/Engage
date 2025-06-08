@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject arm1;
     public GameObject arm2;
     
+    public Camera myCamera;
+    
 
     private void OnEnable()
     {
@@ -74,7 +76,6 @@ public class PlayerMovement : MonoBehaviour
     
     void SpawnArrow()
     {
-        OnHit();
         //_cameraShake.Shake(0.05f, 0.1f);
         GameManager.CurrentBulletCount--;
         
@@ -86,14 +87,37 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            GetHit();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            GetHit();
+        }
+    }
+
     void UseStopWatch()
     {
         GameManager.CurrentStopWatchCount--;
         GameManager.Timer = 1.1f;
     }
     
-    public void OnHit()
+    public void GetHit()
     {
+        GameManager.Health--;
+        if (GameManager.Health <= 0)
+        {
+            print("Game Over");
+        }
+        myCamera.GetComponent<CameraFollow>().TriggerShake(0.1f, 0.02f);
+        _cameraShake.Shake(0.1f, 0.02f);
         StartCoroutine(OnHitFlash());
     }
     

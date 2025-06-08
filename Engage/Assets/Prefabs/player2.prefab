@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7383609056270483592}
   - component: {fileID: 7438820390920263880}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arm1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6670659198587827065}
   - component: {fileID: 5388493937246505898}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arm1shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,9 +183,9 @@ GameObject:
   - component: {fileID: 2998086778511580789}
   - component: {fileID: 5738621860975534378}
   - component: {fileID: 3434367623701605118}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: player2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ca300eb27c1f64d8dd7fd8fbf489d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 7.5
   rb: {fileID: 5738621860975534378}
   rotationSpeed: 10
   myArrow: {fileID: 7774143269128544525}
@@ -375,7 +375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5687815273808321293}
   - component: {fileID: 4210762359298404631}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,7 +460,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4135306529348563409}
   - component: {fileID: 1952829798240487882}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arm1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,7 +545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 964721736147502797}
   - component: {fileID: 5726842238638259820}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,7 +629,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6474715234460692999}
   - component: {fileID: 7459972676628689735}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arm2shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -715,7 +715,7 @@ GameObject:
   - component: {fileID: 2427340154620880407}
   - component: {fileID: 9174465871757616837}
   - component: {fileID: 5104151998371793248}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Crossbow (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -839,7 +839,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9076441725019229618}
   - component: {fileID: 7077559925370544422}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -925,7 +925,7 @@ GameObject:
   - component: {fileID: 3041889745059492346}
   - component: {fileID: 1548377382632697267}
   - component: {fileID: 2122729594695801802}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Crossbow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1051,7 +1051,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2016312858090223783}
   - component: {fileID: 6895010688390295080}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}

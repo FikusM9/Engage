@@ -31,7 +31,7 @@ public class EnemyWanderRandom : MonoBehaviour
     {
         // Move toward target
         Vector2 moveDirection = (_targetPosition - (Vector2)transform.position).normalized;
-        rb.linearVelocity = moveDirection * moveSpeed;
+        rb.velocity = moveDirection * moveSpeed;
         
         // Smooth rotation
         if (moveDirection.magnitude > 0.1f)
